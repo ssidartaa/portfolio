@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme inline {
+  --spacing-header: 4rem;
+  --spacing-main: calc(100vh - var(--spacing-header));
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-dark: var(--dark);
+  --color-light: var(--light);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-gray: var(--gray);
+
+  --shadow-primary: 0 0 20px var(--primary), 0 0 40px var(--primary);
+}
