@@ -1,7 +1,11 @@
-import Container from "@/components/container";
+import type { Metadata } from "next";
 
-const Home = () => {
-  return <Container></Container>;
-};
+import Client from "./_client";
+
+import { homeMetadata } from "@/constants/metadata";
+
+export const metadata: Metadata = homeMetadata;
+
+const Home = () => <Client />;
 
 export default Home;

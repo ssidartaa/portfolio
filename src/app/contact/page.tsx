@@ -2,7 +2,7 @@ import Container from "@/components/container";
 
 const Contact = () => {
   return (
-    <Container>
+    <Container Tag="main">
       <ul></ul>
     </Container>
   );

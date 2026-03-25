@@ -1,30 +1,19 @@
 import { ReactNode } from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "@mui/material";
+
+import { ThemeProvider } from "next-themes";
 
 import Header from "@/components/header";
 
-import theme from "@/styles/theme";
+import { layoutMetadata } from "@/constants/metadata";
+
 import "@/styles/global.css";
-import "@/styles/inline.css";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Test",
-  description: "Portfolio of Sidarta Oliveira - Software Engineer",
-  applicationName: "Portfolio",
-  creator: "Sidarta Oliveira - Software Engineer",
-};
+export const metadata: Metadata = layoutMetadata;
 
 const RootLayout = ({
   children,
@@ -32,12 +21,9 @@ const RootLayout = ({
   children: ReactNode;
 }>) => {
   return (
-    <html lang="en">
-      <body
-        suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider theme={theme}>
+    <html lang="pt-BR" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
+      <body className="vsc-initialized vsc-domain-localhost --vsc-domain">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
 
           {children}

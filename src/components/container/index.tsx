@@ -1,19 +1,19 @@
 "use client";
 
-import { HTMLAttributes, ReactNode } from "react";
+import type { ElementType, HTMLAttributes, ReactNode } from "react";
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+import { cn } from "@/utils/string.utils";
+
+interface IProps extends HTMLAttributes<ElementType> {
+  Tag: ElementType;
   children?: ReactNode;
 }
 
-const Container = ({ children, className, ...rest }: Props) => {
+const Container = ({ Tag, children, className, ...rest }: IProps) => {
   return (
-    <div
-      className={`container mx-auto h-main overflow-x-clip px-5 ${className}`}
-      {...rest}
-    >
+    <Tag className={cn("mx-auto px-5 container", className)} {...rest}>
       {children}
-    </div>
+    </Tag>
   );
 };
 
