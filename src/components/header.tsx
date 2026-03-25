@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 
-import Container from "../container";
+import Container from "./ui/container";
 
 import { excludedLinks, links } from "@/constants/header";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import Container from "@/components/container";
+import Container from "@/components/ui/container";
 
 const Client = () => {
   return <Container Tag="main"></Container>;

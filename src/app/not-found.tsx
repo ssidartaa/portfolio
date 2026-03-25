@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { House } from "lucide";
+import { House } from "lucide-react";
 
-import Container from "@/components/container";
-import Button from "@/components/button";
+import Container from "@/components/ui/container";
 
 const NotFound = () => {
   return (
@@ -10,7 +9,9 @@ const NotFound = () => {
       <Link
         href="/"
         className="md:top-25 md:left-15 absolute flex justify-center items-center hover:bg-foreground/10 p-2 rounded-full transition-all duration-300"
-      ></Link>
+      >
+        <House />
+      </Link>
 
       <Container
         Tag="main"
@@ -21,10 +22,6 @@ const NotFound = () => {
 
           <p className="text-lg">The page you are looking for does not exist</p>
         </div>
-
-        {/* <Button>
-          <Link href="/game">Play</Link>
-        </Button> */}
       </Container>
     </>
   );

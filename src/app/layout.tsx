@@ -8,10 +8,6 @@ import Header from "@/components/header";
 import { layoutMetadata } from "@/constants/metadata";
 
 import "@/styles/global.css";
-import { Geist } from "next/font/google";
-import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = layoutMetadata;
 
@@ -21,9 +17,16 @@ const RootLayout = ({
   children: ReactNode;
 }>) => {
   return (
-    <html lang="pt-BR" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
-      <body className="vsc-initialized vsc-domain-localhost --vsc-domain">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <html lang="pt-BR" suppressHydrationWarning>
+      <head />
+
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <Header />
 
           {children}

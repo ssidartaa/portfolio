@@ -1,8 +1,8 @@
 import { Metadata, Viewport } from "next";
 
-export const siteName = "Portifólio";
+export const siteName = "Portifolio";
 export const siteDescription =
-  "Portfólio pessoal de Sidarta Oliveira, desenvolvedor e estudante de engenharia de software.";
+  "Personal portifolio of Sidarta Oliveira, developer and student of Computer Science.";
 
 export const layoutViewport: Viewport = {
   width: "device-width",
@@ -24,14 +24,14 @@ export const layoutMetadata: Metadata = {
     "Portfolio",
     "Sidarta Oliveira",
     "Software Engineer",
-    "Sobre mim",
-    "Projetos",
-    "Contato",
+    "About me",
+    "Projects",
+    "Contact",
   ],
   authors: [{ name: siteName }],
   creator: siteName,
   publisher: siteName,
-  category: "technology",
+  category: "portifolio",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32", type: "image/ico" },
@@ -79,6 +79,19 @@ export const homeMetadata: Metadata = {
   },
   openGraph: {
     title: `Home - ${siteName}`,
+    description: siteDescription,
+    type: "website",
+  },
+};
+
+export const gameMetadata: Metadata = {
+  title: `Game - ${siteName}`,
+  robots: {
+    index: false,
+    follow: false,
+  },
+  openGraph: {
+    title: `Game - ${siteName}`,
     description: siteDescription,
     type: "website",
   },
