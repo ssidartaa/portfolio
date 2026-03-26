@@ -1,11 +1,11 @@
-import Container from "@/components/ui/container";
+import type { Metadata } from "next";
 
-const Contact = () => {
-  return (
-    <Container Tag="main">
-      <ul></ul>
-    </Container>
-  );
-};
+import Client from "./_client";
+
+import { contactMetadata } from "@/constants/metadata";
+
+export const metadata: Metadata = contactMetadata;
+
+const Contact = () => <Client />;
 
 export default Contact;

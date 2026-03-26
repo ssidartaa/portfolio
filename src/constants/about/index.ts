@@ -1,13 +1,15 @@
-import UsernameIcon from "@mui/icons-material/Person";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import EmailIcon from "@mui/icons-material/Mail";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import XIcon from "@mui/icons-material/X";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FormationIcon from "@mui/icons-material/School";
-import RoleIcon from "@mui/icons-material/Layers";
-import LocationIcon from "@mui/icons-material/Home";
+import {
+  Mail,
+  User,
+  GraduationCap,
+  BriefcaseBusiness,
+  MapPin,
+} from "lucide-react";
+
+import XTwitter from "/x.svg";
+import GitHub from "/github.svg";
+import WhatsApp from "/whatsapp.svg";
+import { FaLinkedinIn } from "react-icons/fa";
 
 import {
   IInfo,
@@ -21,44 +23,39 @@ import {
 export const info: IInfo = {
   [InfoType.USERNAME]: {
     title: "Sidarta Oliveira",
-    icon: <UsernameIcon />,
+    icon: User,
   },
   [InfoType.GITHUB]: {
     title: "ssidartaa",
-    icon: <GitHubIcon />,
+    icon: GitHub,
   },
   [InfoType.EMAIL]: {
     title: "ssidataaoli@gmail.com",
-    icon: <EmailIcon />,
+    icon: Mail,
   },
   [InfoType.WHATSAPP]: {
     title: "+5568992571066",
-    icon: <WhatsAppIcon />,
+    icon: WhatsApp,
   },
   [InfoType.LINKEDIN]: {
     title: "ssidartaa",
-    icon: <LinkedInIcon />,
+    icon: FaLinkedinIn,
   },
   [InfoType.X_TWITTER]: {
     title: "ssidartaa",
-    icon: (
-      <div className="flex gap-2 items-center">
-        <XIcon />
-        <TwitterIcon />
-      </div>
-    ),
+    icon: XTwitter,
   },
   [InfoType.FORMATION]: {
     title: "Bachelor's Degree in Computer Science",
-    icon: <FormationIcon />,
+    icon: GraduationCap,
   },
   [InfoType.ROLE]: {
     title: "Software Engineer - Full Stack/GIS Developer",
-    icon: <RoleIcon />,
+    icon: BriefcaseBusiness,
   },
   [InfoType.LOCATION]: {
     title: "Curitiba - Paraná, Brazil",
-    icon: <LocationIcon />,
+    icon: MapPin,
   },
 };
 
@@ -269,7 +266,3 @@ export const skills: ISkills = {
     "Yarn",
   ],
 };
-
-export const works = [];
-
-export const services = [];

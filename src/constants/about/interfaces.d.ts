@@ -24,7 +24,11 @@ export enum InfoType {
 
 export interface IInfoData {
   title: string;
-  icon: ReactNode;
+  icon:
+    | ReactNode
+    | ForwardRefExoticComponent<
+        Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
+      >;
 }
 
 export interface IInfo {

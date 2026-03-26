@@ -15,25 +15,23 @@ const RootLayout = ({
   children,
 }: Readonly<{
   children: ReactNode;
-}>) => {
-  return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <head />
+}>) => (
+  <html lang="pt-BR" suppressHydrationWarning>
+    <head />
 
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
+    <body>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <Header />
 
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
-  );
-};
+        {children}
+      </ThemeProvider>
+    </body>
+  </html>
+);
 
 export default RootLayout;

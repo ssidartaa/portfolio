@@ -71,6 +71,19 @@ export const layoutMetadata: Metadata = {
   },
 };
 
+export const notFoundMetadata: Metadata = {
+  title: "Page not found",
+  robots: {
+    index: false,
+    follow: false,
+  },
+  openGraph: {
+    title: "Page not found",
+    description: siteDescription,
+    type: "website",
+  },
+};
+
 export const homeMetadata: Metadata = {
   title: `Home - ${siteName}`,
   robots: {
@@ -79,6 +92,32 @@ export const homeMetadata: Metadata = {
   },
   openGraph: {
     title: `Home - ${siteName}`,
+    description: siteDescription,
+    type: "website",
+  },
+};
+
+export const projectsMetadata: Metadata = {
+  title: `Projects - ${siteName}`,
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: `Projects - ${siteName}`,
+    description: siteDescription,
+    type: "website",
+  },
+};
+
+export const contactMetadata: Metadata = {
+  title: `Contact - ${siteName}`,
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: `Contact - ${siteName}`,
     description: siteDescription,
     type: "website",
   },
