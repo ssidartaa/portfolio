@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { IconType } from "react-icons/lib";
 
 export enum QualificationType {
   EDUCATION = "education",
@@ -16,7 +17,6 @@ export enum InfoType {
   EMAIL = "Email",
   WHATSAPP = "Whatsapp",
   LINKEDIN = "LinkedIn",
-  X_TWITTER = "X/Twitter",
   FORMATION = "Formation",
   ROLE = "Role",
   LOCATION = "Location",
@@ -24,11 +24,8 @@ export enum InfoType {
 
 export interface IInfoData {
   title: string;
-  icon:
-    | ReactNode
-    | ForwardRefExoticComponent<
-        Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
-      >;
+  description: string;
+  Icon: ReactNode | IconType;
 }
 
 export interface IInfo {
@@ -37,7 +34,6 @@ export interface IInfo {
   [InfoType.EMAIL]: IInfoData;
   [InfoType.WHATSAPP]: IInfoData;
   [InfoType.LINKEDIN]: IInfoData;
-  [InfoType.X_TWITTER]: IInfoData;
   [InfoType.FORMATION]: IInfoData;
   [InfoType.ROLE]: IInfoData;
   [InfoType.LOCATION]: IInfoData;

@@ -21,9 +21,8 @@ const ModeToggle = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          tabIndex={-1}
           variant="outline"
-          size="icon"
+          size="icon-lg"
           aria-label="Toggle theme"
           title="Toggle theme"
         >
@@ -35,7 +34,7 @@ const ModeToggle = () => {
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="start" className="flex flex-col gap-0.5 w-10">
+      <DropdownMenuContent align="start" className="flex flex-col gap-0.5">
         {themes.map((item) => {
           const isActive = theme === item;
 

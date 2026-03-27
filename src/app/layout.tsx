@@ -20,12 +20,7 @@ const RootLayout = ({
     <head />
 
     <body>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-      >
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <Header />
 
         {children}

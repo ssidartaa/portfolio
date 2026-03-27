@@ -6,10 +6,7 @@ import {
   MapPin,
 } from "lucide-react";
 
-import XTwitter from "/x.svg";
-import GitHub from "/github.svg";
-import WhatsApp from "/whatsapp.svg";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
 
 import {
   IInfo,
@@ -18,44 +15,49 @@ import {
   ISkills,
   QualificationType,
   SkillsType,
-} from "./interfaces";
+} from "@/constants/about/interfaces";
 
 export const info: IInfo = {
   [InfoType.USERNAME]: {
     title: "Sidarta Oliveira",
-    icon: User,
+    description: "Software Engineer - Full Stack/GIS Developer",
+    Icon: User,
   },
   [InfoType.GITHUB]: {
     title: "ssidartaa",
-    icon: GitHub,
+    description: "https://github.com/ssidartaa",
+    Icon: FaGithub,
   },
   [InfoType.EMAIL]: {
     title: "ssidataaoli@gmail.com",
-    icon: Mail,
+    description: "mailto:ssidataaoli@gmail.com",
+    Icon: Mail,
   },
   [InfoType.WHATSAPP]: {
     title: "+5568992571066",
-    icon: WhatsApp,
+    description: "https://wa.me/5568992571066",
+    Icon: FaWhatsapp,
   },
   [InfoType.LINKEDIN]: {
     title: "ssidartaa",
-    icon: FaLinkedinIn,
-  },
-  [InfoType.X_TWITTER]: {
-    title: "ssidartaa",
-    icon: XTwitter,
+    description: "https://linkedin.com/in/ssidartaa",
+    Icon: FaLinkedinIn,
   },
   [InfoType.FORMATION]: {
     title: "Bachelor's Degree in Computer Science",
-    icon: GraduationCap,
+    description: "Estácio",
+    Icon: GraduationCap,
   },
   [InfoType.ROLE]: {
     title: "Software Engineer - Full Stack/GIS Developer",
-    icon: BriefcaseBusiness,
+    description: "Role",
+    Icon: BriefcaseBusiness,
   },
   [InfoType.LOCATION]: {
     title: "Curitiba - Paraná, Brazil",
-    icon: MapPin,
+    description:
+      "https://www.google.com/maps/search/?api=1&query=Curitiba+Parana+Brazil",
+    Icon: MapPin,
   },
 };
 
