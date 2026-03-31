@@ -72,7 +72,7 @@ const RoutesSheet = () => {
           </SheetTitle>
         </SheetHeader>
 
-        <div className="flex flex-col justify-center items-center gap-2 px-5 h-full">
+        <div className="flex flex-col justify-center items-center gap-2 px-4 h-full">
           {routes.map(({ title, description, shortcut, path }) => (
             <SheetClose key={path} asChild>
               <Button

@@ -10,7 +10,7 @@ interface IProps extends HTMLAttributes<ElementType> {
 }
 
 const Container = ({ Tag, children, className, ...rest }: IProps) => (
-  <Tag className={cn("mx-auto px-5 container", className)} {...rest}>
+  <Tag className={cn("mx-auto px-4 container", className)} {...rest}>
     {children}
   </Tag>
 );

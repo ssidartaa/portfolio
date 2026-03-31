@@ -1,4 +1,9 @@
-import { IRoutes } from "./interface";
+interface IRoutes {
+  title: string;
+  description: string;
+  shortcut: string;
+  path: string;
+}
 
 export const routes: IRoutes[] = [
   {
