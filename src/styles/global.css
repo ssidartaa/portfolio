@@ -9,6 +9,9 @@
   --main: calc(100vh - var(--header));
   --radius: 0.625rem;
 
+  --background: oklch(0.97 0.02 300);
+  --foreground: oklch(0.2 0.02 300);
+
   --primary: oklch(0.48 0.28 300);
   --primary-foreground: oklch(0.98 0 0);
 
@@ -43,9 +46,6 @@
   --gray-13: oklch(0.3 0 0);
   --gray-14: oklch(0.2 0 0);
   --dark: oklch(0 0 0);
-
-  --background: oklch(0.97 0.02 300);
-  --foreground: oklch(0.2 0.02 300);
 
   --card: oklch(1 0 0 / 60%);
   --card-foreground: oklch(0.2 0.02 300);
@@ -82,6 +82,9 @@
 }
 
 .dark {
+  --background: oklch(0.16 0.04 300);
+  --foreground: oklch(0.95 0.02 300);
+
   --primary: oklch(0.72 0.26 300);
   --primary-foreground: oklch(0.12 0.02 300);
 
@@ -104,9 +107,6 @@
   --gray-13: oklch(0.9 0 0);
   --gray-14: oklch(0.95 0 0);
   --dark: oklch(1 0 0);
-
-  --background: oklch(0.16 0.04 300);
-  --foreground: oklch(0.95 0.02 300);
 
   --card: oklch(0.2 0.04 300 / 72%);
   --card-foreground: oklch(0.95 0.02 300);
@@ -153,6 +153,7 @@
   --spacing-header: var(--header);
   --spacing-main: var(--main);
 
+  --radius-xs: calc(var(--radius) * 0.4);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -164,6 +165,9 @@
   --shadow-primary:
     0 0 10px color-mix(in oklab, var(--primary) 60%, transparent),
     0 0 30px color-mix(in oklab, var(--primary) 80%, transparent);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -199,9 +203,6 @@
   --color-gray-13: var(--gray-13);
   --color-gray-14: var(--gray-14);
   --color-dark: var(--dark);
-
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
 
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -249,9 +250,11 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
