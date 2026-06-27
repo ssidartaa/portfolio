@@ -92,15 +92,17 @@ const Client = () => {
           }
         >
           <SelectTrigger className="sm:hidden w-full max-w-70">
-            <SelectValue placeholder="Select a filter" />
+            <SelectValue placeholder="Select a stack to filter" />
           </SelectTrigger>
 
           <SelectContent position="popper">
             <SelectGroup>
-              <SelectLabel>Filters</SelectLabel>
+              <SelectLabel>Stacks</SelectLabel>
 
               {projectFilters.map(({ label, value }) => (
-                <SelectItem value={value}>{label}</SelectItem>
+                <SelectItem key={value} value={value}>
+                  {label}
+                </SelectItem>
               ))}
             </SelectGroup>
           </SelectContent>
