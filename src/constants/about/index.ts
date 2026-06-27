@@ -5,65 +5,73 @@ import {
   BriefcaseBusiness,
   MapPin,
 } from "lucide-react";
-
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
 
-import {
+import type {
   IInfo,
-  InfoType,
   IQualifications,
   ISkills,
-  QualificationType,
-  SkillsType,
+  IInfoData,
 } from "@/constants/about/interfaces";
 
 export const info: IInfo = {
-  [InfoType.USERNAME]: {
+  Username: {
     title: "Sidarta Oliveira",
     description: "Software Engineer - Full Stack/GIS Developer",
     Icon: User,
   },
-  [InfoType.GITHUB]: {
-    title: "ssidartaa",
-    description: "https://github.com/ssidartaa",
+  GitHub: {
+    title: "GitHub",
+    description: "ssidartaa",
+    portifolio: "https://github.com/ssidartaa/portfolio",
+    link: "https://github.com/ssidartaa",
     Icon: FaGithub,
   },
-  [InfoType.EMAIL]: {
-    title: "ssidataaoli@gmail.com",
-    description: "mailto:ssidataaoli@gmail.com",
+  Email: {
+    title: "Email",
+    link: "mailto:ssidataaoli@gmail.com",
+    description: "ssidataaoli@gmail.com",
     Icon: Mail,
   },
-  [InfoType.WHATSAPP]: {
-    title: "+5568992571066",
-    description: "https://wa.me/5568992571066",
+  Whatsapp: {
+    title: "WhatsApp",
+    link: "https://wa.me/5568992571066",
+    description: "+55 (68) 99257-1066",
     Icon: FaWhatsapp,
   },
-  [InfoType.LINKEDIN]: {
-    title: "ssidartaa",
-    description: "https://linkedin.com/in/ssidartaa",
+  LinkedIn: {
+    title: "LinkedIn",
+    link: "https://linkedin.com/in/ssidartaa",
     Icon: FaLinkedinIn,
   },
-  [InfoType.FORMATION]: {
+  Formation: {
     title: "Bachelor's Degree in Computer Science",
     description: "Estácio",
     Icon: GraduationCap,
   },
-  [InfoType.ROLE]: {
+  Role: {
     title: "Software Engineer - Full Stack/GIS Developer",
     description: "Role",
     Icon: BriefcaseBusiness,
   },
-  [InfoType.LOCATION]: {
+  Location: {
     title: "Curitiba - Paraná, Brazil",
-    description:
-      "https://www.google.com/maps/search/?api=1&query=Curitiba+Parana+Brazil",
+    link: "https://www.google.com/maps/search/?api=1&query=Curitiba+Parana+Brazil",
     Icon: MapPin,
   },
 };
 
-export const qualifications: IQualifications<QualificationType>[] = [
+export const contactInfos: IInfoData[] = [
+  info.Email,
+  info.Whatsapp,
+  info.GitHub,
+  info.LinkedIn,
+  info.Location,
+];
+
+export const qualifications: IQualifications[] = [
   {
-    title: QualificationType.EDUCATION,
+    title: "education",
     data: [
       {
         school: "Kenzie Academy Brasil",
@@ -80,7 +88,7 @@ export const qualifications: IQualifications<QualificationType>[] = [
     ],
   },
   {
-    title: QualificationType.EXPERIENCE,
+    title: "experience",
     data: [
       {
         company: "SENOGRAFIA DESENVOLVIMENTO E SOLUÇÕES",
@@ -90,24 +98,23 @@ export const qualifications: IQualifications<QualificationType>[] = [
         description: [
           "Leadership in the development of customized technological solutions for a diverse range of clients, including municipal governments, state entities, and private corporations.",
           "Implementation of innovative tools focused on web development and geospatial applications, ensuring robust and efficient solutions.",
-          "Proficiency and effective application of a wide range of programming languages ​​and frameworks, including JavaScript, TypeScript, React, Python, and NodeJS.",
+          "Proficiency and effective application of a wide range of programming languages and frameworks, including JavaScript, TypeScript, React, Python, and NodeJS.",
           "Expertise in the use of tools such as ArcGIS REST API and ArcGIS Maps SDK for JavaScript, contributing to the accuracy and effectiveness of geospatial solutions.",
           "Management and optimization of databases using PostgreSQL, ensuring data integrity and security.",
-          "Proficiency in the use of collaborative development and version control tools, such as Jira, GIT, Github, and Bitbucket, promoting effective collaboration and continuous delivery of projects.",
+          "Proficiency in collaborative development and version control tools, such as Jira, Git, GitHub, and Bitbucket.",
         ],
         technologies: [
           "ArcGIS Maps SDK for JavaScript",
           "ArcGIS REST API",
-          "BitBucket",
+          "Bitbucket",
           "CSS",
-          "Chat GPT",
           "Git",
+          "GitHub",
           "HTML",
           "JavaScript",
           "Jira",
-          "POO (JavaScript)",
-          "React JS",
-          "Typescript",
+          "ReactJS",
+          "TypeScript",
         ],
       },
       {
@@ -116,69 +123,65 @@ export const qualifications: IQualifications<QualificationType>[] = [
         years: "May 2024 - Jun 2024",
         location: "Cruzeiro do Sul - Acre, Brazil (Remote)",
         description: [
-          "I developed and maintained SMVFlow, an internal management system, integrating payment systems and third-party tools.",
+          "Developed and maintained SMVFlow, an internal management system, integrating payment systems and third-party tools.",
         ],
         technologies: [
-          "NextJS 14",
+          "NextJS",
           "TailwindCSS",
           "SASS",
-          "Typescript",
+          "TypeScript",
           "Git",
           "GitHub",
           "Jira",
           "TypeORM",
           "Figma",
-          "POO (JavaScript)",
           "JavaScript",
           "HTML",
           "CSS",
-          "Node JS",
-          "React JS",
-          "Chat GPT",
+          "NodeJS",
+          "ReactJS",
         ],
       },
       {
         company: "Innovation Serviços Digitais LTDA",
-        role: "Desenvolvedor Front End",
-        years: "Jun 2023 -  Dec 2023",
+        role: "Frontend Developer",
+        years: "Jun 2023 - Dec 2023",
         location: "Cruzeiro do Sul - Acre, Brazil (Remote)",
         description: [
-          "Development of complete web applications, from the Front End layer to the Back End layer, using technologies such as HTML5, CSS3, JavaScript, TypeScript, ReactJS, NextJS and NestJS.",
-          "Implementation of new features and functionalities, in addition to making adjustments and optimizations as necessary, using ContextAPI, Git and Gitflow for version control and collaboration.",
-          "Collaboration with multidisciplinary teams to understand project requirements and ensure the delivery of high-quality solutions, following agile methodologies such as SCRUM.",
-          "Solving complex problems using various technologies and programming languages, in addition to Rest, HTTP and JSON APIs for integrations.",
+          "Developed complete web applications using HTML, CSS, JavaScript, TypeScript, ReactJS, NextJS, and NestJS.",
+          "Implemented new features, adjustments, and optimizations using Context API, Git, and Gitflow.",
+          "Collaborated with multidisciplinary teams to understand requirements and deliver high-quality solutions following SCRUM.",
+          "Solved complex problems using REST APIs, HTTP, JSON, and modern web technologies.",
         ],
         technologies: [
           "CSS",
-          "Chat GPT",
           "Figma",
           "Git",
           "GitHub",
           "GitHub Actions",
           "HTML",
           "JavaScript",
-          "NextJS 13",
-          "NextJS 13",
-          "Node JS",
-          "POO (JavaScript)",
+          "NextJS",
+          "NodeJS",
           "Prisma",
-          "React JS",
+          "ReactJS",
           "SASS",
           "SQL",
           "Slack",
           "TailwindCSS",
           "TypeORM",
+          "TypeScript",
         ],
       },
       {
         company: "Kenzie Academy Brasil",
-        role: "UTA (undergraduate training assistant)",
+        role: "Undergraduate Training Assistant",
         years: "May 2022 - Feb 2023",
-        location: "Remoto",
+        location: "Remote",
         description: [
-          "Monitoring and practical guidance on HTML, CSS, JavaScript, POO, DOM, TypeScript, Express, NodeJS, TypeORM, Python, Django rest-framework, Flask and SQL.",
-          "Helping beginner students with questions about assessments, projects and activities.",
-          "Correction of assessments and activities for students in the modules.",
+          "Provided practical guidance on HTML, CSS, JavaScript, OOP, DOM, TypeScript, Express, NodeJS, TypeORM, Python, Django REST Framework, Flask, and SQL.",
+          "Supported beginner students with questions about assessments, projects, and activities.",
+          "Reviewed and corrected student assessments and module activities.",
         ],
         technologies: [
           "CSS",
@@ -193,10 +196,8 @@ export const qualifications: IQualifications<QualificationType>[] = [
           "JavaScript",
           "NestJS",
           "NodeJS",
-          "POO (JavaScript)",
           "Prisma",
           "Python",
-          "Rest Frameworks",
           "SQL",
           "TypeORM",
           "TypeScript",
@@ -207,7 +208,7 @@ export const qualifications: IQualifications<QualificationType>[] = [
 ];
 
 export const skills: ISkills = {
-  [SkillsType.SKILLS]: [
+  skills: [
     "C#",
     "CSS",
     "Django",
@@ -239,18 +240,18 @@ export const skills: ISkills = {
     "TypeORM",
     "TypeScript",
   ],
-  [SkillsType.TOOLS]: [
+  tools: [
     "AWS",
-    "Git Bash",
-    "BitBucket",
-    "FastApi",
+    "Bitbucket",
+    "FastAPI",
     "Figma",
     "Firebase",
     "Git",
-    "Github",
-    "Github Actions",
-    "Google Cloud Platform",
+    "Git Bash",
+    "GitHub",
+    "GitHub Actions",
     "Gmail",
+    "Google Cloud Platform",
     "Heroku",
     "Insomnia",
     "Jira",
@@ -259,11 +260,11 @@ export const skills: ISkills = {
     "Microsoft Teams",
     "Notion",
     "Postman",
-    "Powershell",
+    "PowerShell",
     "Ubuntu",
     "Vercel",
     "Vite",
-    "VsCode",
+    "VS Code",
     "Windows",
     "Yarn",
   ],

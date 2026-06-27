@@ -84,6 +84,19 @@ export const notFoundMetadata: Metadata = {
   },
 };
 
+export const loadingMetadata: Metadata = {
+  title: "Carregando...",
+  robots: {
+    index: false,
+    follow: false,
+  },
+  openGraph: {
+    title: "Carregando...",
+    description: siteDescription,
+    type: "website",
+  },
+};
+
 export const homeMetadata: Metadata = {
   title: `Home - ${siteName}`,
   robots: {

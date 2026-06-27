@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { cn } from "@/lib/utils";
+import { captalize } from "@/utils/string.utils";
 
 const ModeToggle = () => {
   const { setTheme, theme, themes } = useTheme();
@@ -23,18 +24,22 @@ const ModeToggle = () => {
         <Button
           variant="outline"
           size="icon-lg"
-          aria-label="Toggle theme"
-          title="Toggle theme"
+          aria-label="Toggle Theme"
+          title="Toggle Theme"
         >
           <Sun className="w-[1.2rem] h-[1.2rem] rotate-0 dark:-rotate-90 scale-100 dark:scale-0 transition-all duration-300" />
 
           <Moon className="absolute w-[1.2rem] h-[1.2rem] rotate-90 dark:rotate-0 scale-0 dark:scale-100 transition-all duration-300" />
 
-          <span className="sr-only">Toggle theme</span>
+          <span className="sr-only">Toggle Theme</span>
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="start" className="flex flex-col gap-0.5">
+      <DropdownMenuContent
+        align="start"
+        style={{ minWidth: "5.75rem" }}
+        className="flex flex-col gap-0.5"
+      >
         {themes.map((item) => {
           const isActive = theme === item;
 
@@ -43,11 +48,11 @@ const ModeToggle = () => {
               key={item}
               onClick={() => setTheme(item)}
               className={cn(
-                "flex justify-between items-center cursor-pointer",
-                isActive && "bg-accent text-accent-foreground",
+                "flex justify-between items-center",
+                isActive && "bg-accent text-accent-foreground hover:bg-accent!",
               )}
             >
-              {item}
+              {captalize(item)}
 
               {isActive && <Check className="w-4 h-4" />}
             </DropdownMenuItem>
