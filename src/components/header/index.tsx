@@ -15,7 +15,7 @@ const Header = () => {
   if (!routes.map(({ path }) => path).includes(pathName)) return null;
 
   return (
-    <header className="top-0 z-30 sticky bg-background/70 shadow-lg backdrop-blur transition-all">
+    <header className="top-0 z-30 sticky bg-background/70 shadow-lg backdrop-blur transition-all duration-300">
       <Container
         Tag="div"
         className="flex justify-center xs:justify-between items-center gap-5 h-header"

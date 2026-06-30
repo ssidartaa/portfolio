@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 
 import { ThemeProvider } from "next-themes";
 import ProjectsProvider from "@/contexts/projects";
@@ -23,6 +24,8 @@ const RootLayout = ({
     <head />
 
     <body>
+      <Analytics />
+
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <ProjectsProvider>
           <div className="flex flex-col min-h-screen">

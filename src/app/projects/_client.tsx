@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
+import { LinkIcon } from "lucide-react";
 
+import { useTheme } from "next-themes";
 import { useProjects } from "@/contexts/projects";
 
 import Container from "@/components/ui/container";
@@ -36,6 +39,7 @@ import type { IFilterTypes } from "@/constants/projects/interfaces";
 const Client = () => {
   const { GitHub } = info;
 
+  const { resolvedTheme } = useTheme();
   const {
     handleFindAllProjects,
     handleProjectsFilter,
@@ -117,8 +121,8 @@ const Client = () => {
                 id,
                 name,
                 topics,
-                url,
-                deployments_url,
+                html_url,
+                homepage,
                 description,
                 language,
               }) => {
@@ -126,34 +130,99 @@ const Client = () => {
                   topics.includes(value),
                 );
 
+                const isOpenSource = topics.includes("open-source");
+
                 return (
                   <Card
                     key={id}
-                    className="group pt-0 w-full h-89.5 overflow-hidden"
+                    className="group pt-0 dark:border border-2 w-full h-90 overflow-hidden"
                   >
-                    <div className="relative bg-[url(/projectsBackground.webp)] bg-accent/80 h-35.5 overflow-hidden">
-                      <div className="z-5 absolute inset-0 dark:bg-black/25 dark:group-hover:bg-secondary/50 group-hover:bg-black/20 transition-all duration-300">
-                        <nav>
-                          <ul>
-                            <li></li>
+                    <div className="relative bg-[url(/projectsBackground.webp)] bg-accent/80 h-35 overflow-hidden">
+                      <div className="z-5 absolute inset-0 bg-black/20 md:bg-transparent md:dark:bg-black/15 md:dark:group-hover:bg-secondary/50 md:group-hover:bg-black/20 dark:bg-secondary/50 transition-all duration-300">
+                        <nav className="flex justify-center items-center md:group-hover:opacity-100 md:opacity-0 w-full h-full transition-all duration-300">
+                          <ul className="flex items-center gap-2">
+                            <li>
+                              <Button
+                                asChild
+                                variant="outline"
+                                size="icon-lg"
+                                className="bg-transparent hover:bg-primary/10 border-foreground! border!"
+                              >
+                                <Link
+                                  tabIndex={-1}
+                                  href={html_url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  title="GitHub Repository"
+                                  aria-label="GitHub Repository"
+                                >
+                                  <GitHub.Icon />
+                                </Link>
+                              </Button>
+                            </li>
 
-                            <li></li>
+                            {homepage && (
+                              <li>
+                                <Button
+                                  asChild
+                                  variant="outline"
+                                  size="icon-lg"
+                                  className="bg-transparent hover:bg-primary/10 border-foreground! border!"
+                                >
+                                  <Link
+                                    tabIndex={-1}
+                                    href={homepage}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title="Website Link"
+                                    aria-label="Website Link"
+                                  >
+                                    <LinkIcon />
+                                  </Link>
+                                </Button>
+                              </li>
+                            )}
                           </ul>
                         </nav>
                       </div>
 
-                      <img
-                        src={`https://opengraph.githubassets.com/1/${GitHub.description}/${name}`}
-                        alt="Thumbnail"
-                        className="absolute inset-0 group-hover:blur-[2px] w-full h-full object-bottom object-contain transition-all duration-300"
-                      />
+                      <figure>
+                        <img
+                          src={`https://opengraph.githubassets.com/1/${GitHub.description}/${name}`}
+                          alt="Thumbnail"
+                          className="absolute inset-0 blur-[2px] md:blur-none md:group-hover:blur-[2px] w-full h-full object-bottom object-contain transition-all duration-300"
+                        />
+
+                        <figcaption hidden className="sr-only">
+                          Thumbnail
+                        </figcaption>
+                      </figure>
                     </div>
 
                     <CardContent>
-                      <CardAction>
+                      <CardAction className="flex flex-wrap items-center gap-2 mb-3">
+                        {isOpenSource && (
+                          <Badge variant="secondary">{"</> Open Source"}</Badge>
+                        )}
+
                         {!!stack && (
                           <Badge variant="outline">{stack.label}</Badge>
                         )}
+
+                        <figure
+                          title={language}
+                          aria-label={language}
+                          className="w-5 h-5"
+                        >
+                          <img
+                            src={`https://skillicons.dev/icons?i=${language.toLowerCase()}&theme=${resolvedTheme}`}
+                            alt={language}
+                          />
+
+                          <figcaption hidden className="sr-only">
+                            {language}
+                          </figcaption>
+                        </figure>
                       </CardAction>
 
                       <CardTitle>

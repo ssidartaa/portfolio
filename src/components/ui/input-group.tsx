@@ -13,7 +13,7 @@ const InputGroup = ({ className, ...props }: ComponentProps<"div">) => (
     data-slot="input-group"
     role="group"
     className={cn(
-      "group/input-group relative flex has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:flex-col items-center has-disabled:bg-input/50 dark:bg-input/30 dark:has-disabled:bg-input/80 has-disabled:opacity-50 has-[>[data-align=block-end]]:[&>input]:pt-3 has-[>[data-align=inline-end]]:[&>input]:pr-1.5 has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=inline-start]]:[&>input]:pl-1.5 border border-input has-[[data-slot][aria-invalid=true]]:border-destructive in-data-[slot=combobox-content]:focus-within:border-inherit rounded-lg outline-none w-full min-w-0 h-8 has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-start]]:h-auto has-[>textarea]:h-auto transition-colors",
+      "group/input-group relative flex has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:flex-col items-center has-disabled:bg-input/50 dark:bg-input/30 dark:has-disabled:bg-input/80 has-disabled:opacity-50 has-[>[data-align=block-end]]:[&>input]:pt-3 has-[>[data-align=inline-end]]:[&>input]:pr-1.5 has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=inline-start]]:[&>input]:pl-1.5 border border-input has-[[data-slot][aria-invalid=true]]:border-destructive in-data-[slot=combobox-content]:focus-within:border-inherit rounded-lg outline-none w-full min-w-0 h-8 has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-start]]:h-auto has-[>textarea]:h-auto transition-colors duration-300",
       className,
     )}
     {...props}

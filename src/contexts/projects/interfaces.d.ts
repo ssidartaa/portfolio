@@ -6,10 +6,10 @@ export interface IProject {
   id: number;
   name: string;
   topics: string[];
-  url: string;
-  deployments_url: string | null;
+  html_url: string;
+  homepage: string | null;
   description: string | null;
-  language: string | null;
+  language: string;
 }
 
 export interface IProps {
