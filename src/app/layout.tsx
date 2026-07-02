@@ -1,10 +1,11 @@
 import { ReactNode } from "react";
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
 
+import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "next-themes";
 import ProjectsProvider from "@/contexts/projects";
 
+import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -25,6 +26,8 @@ const RootLayout = ({
 
     <body>
       <Analytics />
+
+      <Toaster />
 
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <ProjectsProvider>

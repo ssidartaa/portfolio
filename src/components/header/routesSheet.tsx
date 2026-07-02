@@ -87,7 +87,7 @@ const RoutesSheet = () => {
           variant="outline"
           size="icon-lg"
         >
-          <Menu className="w-4 h-4" />
+          <Menu className="size-4" />
 
           <span className="sr-only">See routes</span>
         </Button>

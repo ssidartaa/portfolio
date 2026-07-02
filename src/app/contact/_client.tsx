@@ -57,7 +57,7 @@ const Client = () => {
                   i === 1 && "delay-300",
                 )}
               >
-                <Icon className="w-8 h-8 text-chart-2" />
+                <Icon className="size-8 text-chart-2" />
 
                 <span className="font-bold text-muted-foreground text-lg">
                   {title}
@@ -77,7 +77,7 @@ const Client = () => {
 
         <div className="flex flex-col justify-center items-center gap-2 mt-4 text-xs">
           <div className="flex items-center gap-2">
-            <Location.Icon className="w-4 h-4" />
+            <Location.Icon className="size-4" />
 
             <span>{Location.title}</span>
           </div>

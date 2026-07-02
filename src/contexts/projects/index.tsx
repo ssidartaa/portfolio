@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
+import { toast } from "sonner";
 
 import { gitHubApi } from "@/services/api";
 
@@ -30,13 +31,17 @@ const ProjectsProvider = ({ children }: IProps) => {
         },
       });
 
-      console.log(data);
-
       setProjects(
-        data.filter(({ topics }) => topics.includes(projectTopicFilterKey)),
+        data.filter(
+          ({ topics }: IProject) =>
+            topics.includes(projectTopicFilterKey) &&
+            (filter === "all" || topics.includes(filter)),
+        ),
       );
     } catch (err) {
-      console.error("Error fetching projects:", err);
+      toast.error("Error fetching projects.");
+
+      console.error("Error fetching projects ->", err);
     } finally {
       setLoading(false);
     }

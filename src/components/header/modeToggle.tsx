@@ -27,9 +27,9 @@ const ModeToggle = () => {
           aria-label="Toggle Theme"
           title="Toggle Theme"
         >
-          <Sun className="w-[1.2rem] h-[1.2rem] rotate-0 dark:-rotate-90 scale-100 dark:scale-0 transition-all duration-300" />
+          <Sun className="size-[1.2rem] rotate-0 dark:-rotate-90 scale-100 dark:scale-0 transition-all duration-300" />
 
-          <Moon className="absolute w-[1.2rem] h-[1.2rem] rotate-90 dark:rotate-0 scale-0 dark:scale-100 transition-all duration-300" />
+          <Moon className="absolute size-[1.2rem] rotate-90 dark:rotate-0 scale-0 dark:scale-100 transition-all duration-300" />
 
           <span className="sr-only">Toggle Theme</span>
         </Button>
@@ -54,7 +54,7 @@ const ModeToggle = () => {
             >
               {captalize(item)}
 
-              {isActive && <Check className="w-4 h-4" />}
+              {isActive && <Check className="size-4" />}
             </DropdownMenuItem>
           );
         })}

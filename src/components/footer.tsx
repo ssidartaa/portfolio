@@ -45,7 +45,7 @@ const Footer = () => {
             title="View code on GitHub"
             aria-label="View code on GitHub"
           >
-            <GitHub.Icon className="w-4 h-4" />
+            <GitHub.Icon className="size-4" />
 
             <span className="text-xs xs:text-sm">View code on GitHub</span>
           </Link>

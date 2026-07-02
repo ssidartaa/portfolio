@@ -7,9 +7,9 @@ export interface IProject {
   name: string;
   topics: string[];
   html_url: string;
+  language: string;
   homepage: string | null;
   description: string | null;
-  language: string;
 }
 
 export interface IProps {

@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { LinkIcon } from "lucide-react";
+import { ChevronUp, FolderArchive, LinkIcon } from "lucide-react";
 
 import { useTheme } from "next-themes";
 import { useProjects } from "@/contexts/projects";
@@ -19,7 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { SpinLoad } from "@/components/loading";
+import { Spinner } from "@/components/ui/spinner";
 import {
   Card,
   CardTitle,
@@ -28,6 +28,13 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty";
 
 import { captalize } from "@/utils/string.utils";
 
@@ -49,12 +56,30 @@ const Client = () => {
     filter,
   } = useProjects();
 
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () =>
+      setShowScrollTop(window.scrollY > window.innerHeight / 2);
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [projects, loading]);
+
   useEffect(() => {
     handleFindAllProjects();
   }, [filter]);
 
   return (
-    <Container Tag="main" className="flex flex-col gap-6 pt-12 min-h-main">
+    <Container
+      Tag="main"
+      className="relative flex flex-col gap-6 pt-12 min-h-main"
+    >
       <div className="flex flex-col items-center gap-4">
         <h2 className="font-bold text-muted-foreground text-4xl text-center tracking-tight">
           My Projects
@@ -91,6 +116,8 @@ const Client = () => {
 
         <Select
           value={filter}
+          disabled={loading}
+          aria-disabled={loading}
           onValueChange={(value) =>
             filter === value || handleProjectsFilter(value as IFilterTypes)
           }
@@ -114,9 +141,9 @@ const Client = () => {
       </div>
 
       {!loading ? (
-        <ul className="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-          {projects && !!projects.length ? (
-            projects.map(
+        !!projects?.length ? (
+          <ul className="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+            {projects.map(
               ({
                 id,
                 name,
@@ -128,14 +155,15 @@ const Client = () => {
               }) => {
                 const stack = stackKeys.find(({ value }) =>
                   topics.includes(value),
-                );
+                )!;
 
                 const isOpenSource = topics.includes("open-source");
+                const isCurrentPage = html_url === GitHub.portifolio;
 
                 return (
                   <Card
                     key={id}
-                    className="group pt-0 dark:border border-2 w-full h-90 overflow-hidden"
+                    className="group pt-0 dark:border border-2 w-full h-100 overflow-hidden"
                   >
                     <div className="relative bg-[url(/projectsBackground.webp)] bg-accent/80 h-35 overflow-hidden">
                       <div className="z-5 absolute inset-0 bg-black/20 md:bg-transparent md:dark:bg-black/15 md:dark:group-hover:bg-secondary/50 md:group-hover:bg-black/20 dark:bg-secondary/50 transition-all duration-300">
@@ -171,8 +199,8 @@ const Client = () => {
                                 >
                                   <Link
                                     tabIndex={-1}
-                                    href={homepage}
-                                    target="_blank"
+                                    href={isCurrentPage ? "/" : homepage}
+                                    target={isCurrentPage ? "_self" : "_blank"}
                                     rel="noopener noreferrer"
                                     title="Website Link"
                                     aria-label="Website Link"
@@ -199,35 +227,34 @@ const Client = () => {
                       </figure>
                     </div>
 
-                    <CardContent>
-                      <CardAction className="flex flex-wrap items-center gap-2 mb-3">
+                    <CardContent className="flex flex-col gap-3">
+                      <CardTitle className="text-lg text-center">
+                        {captalize(name.replaceAll("-", " "), true)}
+                      </CardTitle>
+
+                      <CardAction className="flex flex-wrap justify-center items-center gap-2 w-full">
                         {isOpenSource && (
                           <Badge variant="secondary">{"</> Open Source"}</Badge>
-                        )}
-
-                        {!!stack && (
-                          <Badge variant="outline">{stack.label}</Badge>
                         )}
 
                         <figure
                           title={language}
                           aria-label={language}
-                          className="w-5 h-5"
+                          className="w-4.5 h-4.5"
                         >
                           <img
                             src={`https://skillicons.dev/icons?i=${language.toLowerCase()}&theme=${resolvedTheme}`}
                             alt={language}
+                            className="w-full h-full object-cover"
                           />
 
                           <figcaption hidden className="sr-only">
                             {language}
                           </figcaption>
                         </figure>
-                      </CardAction>
 
-                      <CardTitle>
-                        {captalize(name.replaceAll("-", " "), true)}
-                      </CardTitle>
+                        <Badge variant="outline">{stack.label}</Badge>
+                      </CardAction>
 
                       {description && (
                         <CardDescription className="text-justify">
@@ -238,14 +265,44 @@ const Client = () => {
                   </Card>
                 );
               },
-            )
-          ) : (
-            <></>
-          )}
-        </ul>
+            )}
+          </ul>
+        ) : (
+          <div className="flex flex-1 justify-center items-center h-full">
+            <Empty>
+              <EmptyContent>
+                <EmptyMedia variant="icon">
+                  <FolderArchive />
+                </EmptyMedia>
+
+                <EmptyTitle>No Projects found</EmptyTitle>
+
+                <EmptyDescription>
+                  Try switching to a different stack filter
+                </EmptyDescription>
+              </EmptyContent>
+            </Empty>
+          </div>
+        )
       ) : (
         <div className="flex flex-1 justify-center items-center h-full">
-          <SpinLoad />
+          <Spinner />
+        </div>
+      )}
+
+      {showScrollTop && (
+        <div className="bottom-10 left-0 z-20 sticky flex justify-center items-center mt-4 w-full">
+          <Button
+            asChild
+            variant="ghost"
+            size="icon"
+            title="Scroll to top"
+            aria-label="Scroll to top"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="animate-bounce"
+          >
+            <ChevronUp />
+          </Button>
         </div>
       )}
     </Container>

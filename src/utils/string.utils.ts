@@ -15,7 +15,7 @@ export const normalize = (str: string): string =>
     .replace(/\s+/g, " ");
 
 export const matchShortcut = (
-  event: KeyboardEvent,
+  { key: keyName, shiftKey, ctrlKey, metaKey, altKey }: KeyboardEvent,
   shortcuts: string[],
 ): boolean => {
   const parts = shortcuts.map((shortcut) => shortcut.toLowerCase());
@@ -28,10 +28,10 @@ export const matchShortcut = (
   const requiresAlt = parts.includes("alt");
 
   return (
-    event.key.toLowerCase() === key &&
-    event.shiftKey === requiresShift &&
-    event.ctrlKey === requiresCtrl &&
-    event.metaKey === requiresMeta &&
-    event.altKey === requiresAlt
+    keyName.toLowerCase() === key &&
+    shiftKey === requiresShift &&
+    ctrlKey === requiresCtrl &&
+    metaKey === requiresMeta &&
+    altKey === requiresAlt
   );
 };

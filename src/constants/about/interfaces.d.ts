@@ -2,7 +2,14 @@ import { IconType } from "react-icons/lib";
 
 export type IQualificationType = "education" | "experience";
 
-export type ISkillsType = "skills" | "tools";
+export type ISkillsType =
+  | "programLanguages"
+  | "frontend"
+  | "backend"
+  | "database"
+  | "devOps"
+  | "tools"
+  | "testingAndOthers";
 
 export type IInfoType =
   | "Username"
