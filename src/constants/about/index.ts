@@ -1,11 +1,13 @@
 import {
   Mail,
-  User,
   GraduationCap,
   BriefcaseBusiness,
   MapPin,
+  Layers,
 } from "lucide-react";
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
+
+import { CV_LINK } from "@/utils/env.utils";
 
 import type {
   IInfo,
@@ -17,8 +19,9 @@ import type {
 export const info: IInfo = {
   Username: {
     title: "Sidarta Oliveira",
-    description: "Software Engineer - Full Stack/GIS Developer",
-    Icon: User,
+    link: CV_LINK,
+    description: "Full Stack/GIS Developer",
+    Icon: Layers,
   },
   GitHub: {
     title: "GitHub",
@@ -207,11 +210,11 @@ export const qualifications: IQualifications[] = [
   },
 ];
 
-export const skills: ISkills = {
+export const techs: ISkills = {
   programLanguages: ["JavaScript", "TypeScript", "Python", "PHP", "C#"],
   frontend: [
-    "React.js",
     "Next.js",
+    "React.js",
     "Tailwind CSS",
     "Sass",
     "Vite",
@@ -261,3 +264,13 @@ export const skills: ISkills = {
   ],
   testingAndOthers: ["Jest", "Markdown", "Regex", "NPM", "PNPM", "Yarn"],
 };
+
+export const allTechs: string[] = [
+  techs.programLanguages,
+  techs.frontend,
+  techs.backend,
+  techs.database,
+  techs.devOps,
+  techs.tools,
+  techs.testingAndOthers,
+].flat();

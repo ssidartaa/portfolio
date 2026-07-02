@@ -56,7 +56,7 @@ const Client = () => {
     filter,
   } = useProjects();
 
-  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () =>
@@ -174,6 +174,8 @@ const Client = () => {
                                 asChild
                                 variant="outline"
                                 size="icon-lg"
+                                title="GitHub Repository"
+                                aria-label="GitHub Repository"
                                 className="bg-transparent hover:bg-primary/10 border-foreground! border!"
                               >
                                 <Link
@@ -181,8 +183,6 @@ const Client = () => {
                                   href={html_url}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  title="GitHub Repository"
-                                  aria-label="GitHub Repository"
                                 >
                                   <GitHub.Icon />
                                 </Link>
@@ -195,6 +195,8 @@ const Client = () => {
                                   asChild
                                   variant="outline"
                                   size="icon-lg"
+                                  title="Website Link"
+                                  aria-label="Website Link"
                                   className="bg-transparent hover:bg-primary/10 border-foreground! border!"
                                 >
                                   <Link
@@ -202,8 +204,6 @@ const Client = () => {
                                     href={isCurrentPage ? "/" : homepage}
                                     target={isCurrentPage ? "_self" : "_blank"}
                                     rel="noopener noreferrer"
-                                    title="Website Link"
-                                    aria-label="Website Link"
                                   >
                                     <LinkIcon />
                                   </Link>
